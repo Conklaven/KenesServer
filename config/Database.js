@@ -10,8 +10,12 @@ const db = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_
     host:'localhost',
     dialect:'postgres',
     logging: true,
-
-
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
 })
 
 export default db
