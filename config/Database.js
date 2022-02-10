@@ -11,19 +11,19 @@ const db = new Sequelize(process.env.DATABASE_URL, {
     dialect:'postgres',
     logging: true,
     dialectOptions: {
-        // ssl: {
-        //   require: true,
-        //   rejectUnauthorized: false
-        // }
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
       }
     })
-db
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  })
+// db
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch(err => {
+//     console.error('Unable to connect to the database:', err);
+//   })
 
 export default db
