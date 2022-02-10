@@ -3,7 +3,7 @@ import db from '../config/Database.js';
 
 const {DataTypes} = Sequelize;
 
-const Upload = db.define('public.ourrestaurants', { 
+const Upload = db.define("ourrestaurants", { 
     restaurant_name:{
         type: DataTypes.STRING
     },
