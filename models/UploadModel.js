@@ -10,6 +10,9 @@ const Upload = db.define("ourrestaurants", {
     phone:{
         type: DataTypes.STRING
     },
+    about:{
+        type: DataTypes.STRING
+    },
     email:{
         type: DataTypes.STRING
     },
