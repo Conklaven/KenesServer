@@ -34,6 +34,9 @@ const Upload = db.define("ourrestaurants", {
     kosher:{
         type: DataTypes.STRING
     },
+    rating:{
+        type: DataTypes.INTEGER
+    },
     // createdAt : false,
     // updatedAt: false
     // if you dont want createat and updatedat
