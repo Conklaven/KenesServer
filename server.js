@@ -5,6 +5,8 @@ import cors from 'cors'
 import db from "./config/Database.js"
 //define table:
 import Upload from './models/UploadModel.js'
+import cookieParser from 'cookie-parser';
+import router from './Routes/index.js'
 
 // to send to database 
 // npm sequelize and pg pg-hstore
@@ -25,8 +27,11 @@ try {
 //     console.log('jjj')
 //     if(true) res.json({ msg:'login again'})
 // })
-app.use(cors());
+app.use(cors({credentials: true, origin:'http://localhost:3000'}));
+app.use(cookieParser());
 app.use(express.json());
+app.use(router)
+
 // app.use(auth);
 app.use(express.urlencoded())
 
