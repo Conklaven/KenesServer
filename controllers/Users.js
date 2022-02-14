@@ -33,7 +33,7 @@ export const Login = async (req,res) => {
             expiresIn: '60s'
         })
         res.cookie('accessToken', accessToken, {
-            httpOnly :true,
+            // httpOnly :true,
             sameSite: 'none',
             maxAge: 60 * 1000
         })
