@@ -27,7 +27,7 @@ try {
 //     console.log('jjj')
 //     if(true) res.json({ msg:'login again'})
 // })
-app.use(cors({credentials: true, origin:'https://kenes-tours.netlify.app/'}));
+app.use(cors({credentials: true, origin:'https://kenes-tours.netlify.app'}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router)
