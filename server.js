@@ -23,16 +23,11 @@ try {
     console.error(err)
 }
 
-// const auth = ((req, res, next) => {
-//     console.log('jjj')
-//     if(true) res.json({ msg:'login again'})
-// })
+
 app.use(cors({credentials: true, origin:'https://kenes-tours.netlify.app'}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router)
-
-// app.use(auth);
 // app.use(express.urlencoded())
 
 app.listen(process.env.PORT, () => {
