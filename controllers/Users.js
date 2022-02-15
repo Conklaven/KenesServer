@@ -29,11 +29,15 @@ export const Login = async (req,res) => {
         if(!match) return res.status(400).json({msg:'Password mismatch'})
         const userID = user[0].id;
         const email =user[0].email
+        console.log(`Email = ${email}`)
+        console.log(`userID = ${userID}`)
         const accessToken = jwt.sign({userID,email}, process.env.ACCESS_TOKEN_SECRET, {
             expiresIn: '60s'
         })
+        console.log(`accesstoken: ${accessToken}`)
         res.cookie('accessToken', accessToken, {
-            httpOnly :true,
+            httpOnly :false,
+            sameSite: 'Lax',
             maxAge: 60 * 1000
         })
         res.json({accessToken})

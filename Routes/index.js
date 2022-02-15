@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/register', Register);
 router.post('/login', Login)
-router.get('/token', VerifyToken, (req,res) => {
+router.get('/tokens', VerifyToken, (req,res) => {
     res.status(200).json({msg:'accessToken'});
 });
 export default router;

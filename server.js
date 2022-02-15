@@ -1,17 +1,12 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import cors from 'cors'
-//need for connecting to pgadmin
-import db from "./config/Database.js"
-//define table:
-import Upload from './models/UploadModel.js'
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import Upload from './models/UploadModel.js';
 import cookieParser from 'cookie-parser';
-import router from './Routes/index.js'
+import router from './Routes/index.js';
+import db from "./config/Database.js";
 
-// to send to database 
-// npm sequelize and pg pg-hstore
-
-dotenv.config()
+dotenv.config();
 
 const app = express();
 //upload to pgadmin
@@ -28,7 +23,7 @@ app.use(cors({credentials: true, origin:'https://kenes-tours.netlify.app'}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router)
-// app.use(express.urlencoded())
+app.use(express.urlencoded(({ extended: true })))
 
 app.listen(process.env.PORT, () => {
     console.log('listening on port ' + process.env.PORT)
