@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken';
 
 export const VerifyToken = (req, res, next) => {
-    const accessToken = req.cookies.accessToken ||
+    const accessToken = 
+                        req.cookies.accessToken ||
                         req.headers['x-access-token'] || 
                         req.headers['authorization'];
     if (accessToken == null) return res.sendStatus(401);
