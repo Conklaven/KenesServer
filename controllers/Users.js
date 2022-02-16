@@ -43,6 +43,6 @@ export const Login = async (req,res) => {
         res.json({accessToken})
     } catch (error) {
         console.log(error)
-        res.status(404).json({msg:'Email Not Found'})
+        res.status(404).json({msg:'User Not Found'})
     }
 }

@@ -21,6 +21,8 @@ try {
 
 
 app.use(cors({credentials: true, origin:'https://kenes-tours.netlify.app'}));
+// app.use(cors({credentials: true, origin:'http://localhost:3000'}));
+
 
 
 app.use(cookieParser());
@@ -50,9 +52,16 @@ app.post('/newrest', async (req, res) => {
         console.log(error)
         await res.status(401).json({msg:"not ok"})
     }
-  
-    
-    
+})
+app.post('/newguide', async (req, res) => {
+    console.log(req.body)
+    try {
+        const guide =await GuideDB.create(req.body)
+        await res.json(guide)
+    } catch (error) {
+        console.log(error)
+        await res.status(401).json({msg:"not ok"})
+    }
 })
 
 app.get('/guides/', async (req, res) => {
