@@ -5,6 +5,7 @@ import Upload from './models/UploadModel.js';
 import cookieParser from 'cookie-parser';
 import router from './Routes/index.js';
 import db from "./config/Database.js";
+import GuideDB from './models/GuideDB.js';
 
 dotenv.config();
 
@@ -52,4 +53,13 @@ app.post('/newrest', async (req, res) => {
   
     
     
+})
+
+app.get('/guides/', async (req, res) => {
+    const guides = await GuideDB.findAll({
+        // where:{
+        //     filetype: 'image/jpeg'
+        // }
+    })
+    res.json(guides)
 })
